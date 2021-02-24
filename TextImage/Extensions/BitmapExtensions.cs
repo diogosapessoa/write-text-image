@@ -15,18 +15,13 @@ namespace TextImage.Extensions
         /// <returns></returns>
         public static int BytesPerPixel(this Bitmap bitmap)
         {
-            switch (bitmap.PixelFormat)
+            return bitmap.PixelFormat switch
             {
-                case PixelFormat.Format8bppIndexed:
-                    return 1;
-                case PixelFormat.Format24bppRgb:
-                    return 3;
-                case PixelFormat.Format32bppArgb:
-                case PixelFormat.Format32bppPArgb:
-                    return 4;
-                default:
-                    return 0;
-            }
+                PixelFormat.Format8bppIndexed => 1,
+                PixelFormat.Format24bppRgb => 3,
+                PixelFormat.Format32bppArgb or PixelFormat.Format32bppPArgb => 4,
+                _ => 0,
+            };
         }
     }
 }
