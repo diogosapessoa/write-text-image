@@ -23,7 +23,7 @@ namespace ConsoleApp
             {
                 { "i|input=", "the input image file path.", i => Input = i },
                 { "o|output=", "the output text file path.", o => Output = o },
-                { "f|format=", "the type of encoding [ascii | braille], default is ascii.", f => Format = f },
+                { "f|format=", "the format of encoding [ascii | braille], default is ascii.", f => Format = f },
                 { "t|threshold=", "threshold used in braille format [0~255], default is 127.", t => Threshold = Convert.ToByte(t) },
                 { "h|help", "show this message and exit.", h => ShouldShowHelp = h != null }
             };
@@ -54,13 +54,20 @@ namespace ConsoleApp
                 return;
             }
 
-            string text = new ImageTextBuilder()
-                .WithSource(Input)
-                .WithThreshold(Threshold)
-                .WithFormat(format)
-                .Build();
+            try
+            {
+                string text = new ImageTextBuilder()
+                    .WithSource(Input)
+                    .WithThreshold(Threshold)
+                    .WithFormat(format)
+                    .Build();
 
-            File.WriteAllText(Output, text);
+                File.WriteAllText(Output, text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static bool GetOpt(OptionSet options, string[] args)

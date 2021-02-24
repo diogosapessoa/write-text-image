@@ -8,9 +8,23 @@ Here is source code for convert image to text.
 
 Executing console app `image-text-cli.exe`
 
+```powershell
+PS> .\image-text-cli.exe -h
+```
+
+```console
+Usage: image-text-cli.exe +[options]
+options:
+  -i, --input=VALUE          the input image file path.
+  -o, --output=VALUE         the output text file path.
+  -f, --format=VALUE         the format of encoding [ascii | braille], default is ascii.
+  -t, --threshold=VALUE      threshold used in braille format [0~255], default is 127.
+  -h, --help                 show this message and exit.
+```
+
 ### Braille format
 
-[](./Images/galileo-galilei.png)
+![Alt text](./Images/galileo-galilei.png)
 
 ```powershell
 PS> .\image-text-cli.exe -i "..\..\..\..\Images\galileo-galilei.png" -o "C:\Users\diogo\Desktop\galileo.txt" -f "braille"
@@ -57,7 +71,7 @@ PS> .\image-text-cli.exe -i "..\..\..\..\Images\galileo-galilei.png" -o "C:\User
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠠⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
 ```
 
-[](./Images/isaac-newton.png)
+![Alt text](./Images/isaac-newton.png)
 
 ```powershell
 PS> .\image-text-cli.exe -i "..\..\..\..\Images\isaac-newton.png" -o "C:\Users\diogo\Desktop\newton.txt" -f "braille" -t 64
@@ -107,7 +121,7 @@ PS> .\image-text-cli.exe -i "..\..\..\..\Images\isaac-newton.png" -o "C:\Users\d
 
 ### ASCII format
 
-[](./Images/albert-einstein.png)
+![Alt text](./Images/albert-einstein.png)
 
 ```powershell
 PS> .\image-text-cli.exe -i "..\..\..\..\Images\albert-einstein.png" -o "C:\Users\diogo\Desktop\einstein.txt"
