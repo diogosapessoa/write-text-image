@@ -30,7 +30,7 @@ namespace TextImage
         public override char GetChar(int x, int y)
         {
             var color = Source.GetPixel(x, y);
-            var average = (color.R + color.G + color.B) * 0.33333;
+            var average = (color.R + color.G + color.B) * 0.33333f;
             int index = (int)((palette.Length * average) / byte.MaxValue);
             return palette[index];
         }
