@@ -32,25 +32,16 @@ namespace TextImage
         /// <returns></returns>
         public override char GetChar(int x, int y)
         {
-            int[,] matrixPos = new int[,]
-            {
-                { x, y + 0 }, { x + 1, y + 0 },
-                { x, y + 1 }, { x + 1, y + 1 },
-                { x, y + 2 }, { x + 1, y + 2 }
-            };
-
             double value = 0d;
 
-            for (var i = 0; i < 6; i++)
-            {
-                var currentX = matrixPos[i, 0];
-                var currentY = matrixPos[i, 1];
-
-                var color = Source.GetPixel(currentX, currentY);
-                var average = (color.R + color.G + color.B) * 0.33333f;
-                if (average >= Threshold)
-                    value += Math.Pow(2, 5 - i);
-            }
+            for (var i = 0; i < 3; i++)
+                for (var j = 0; j < 2; j++)
+                {
+                    var color = Source.GetPixel(j + x, i + y);
+                    var average = (color.R + color.G + color.B) * 0.33333f;
+                    if (average >= Threshold)
+                        value += Math.Pow(2, 5 - i);
+                }
 
             var brailleBinaryValue = (int)value;
             return brailleBinaryValue == 0 ? '⠄' : (char)(10240 + brailleBinaryValue);
