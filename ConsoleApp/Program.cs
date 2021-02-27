@@ -56,13 +56,12 @@ namespace ConsoleApp
 
             try
             {
-                string text = new ImageTextBuilder()
+                using var imageTextBuilder = new ImageTextBuilder()
                     .WithSource(Input)
                     .WithThreshold(Threshold)
-                    .WithFormat(format)
-                    .Build();
+                    .WithFormat(format);
 
-                File.WriteAllText(Output, text);
+                File.WriteAllText(Output, imageTextBuilder.Build());
             }
             catch (Exception ex)
             {

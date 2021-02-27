@@ -8,7 +8,7 @@ namespace TextImage
     /// <summary>
     /// To be added.
     /// </summary>
-    public class ImageTextBuilder
+    public sealed class ImageTextBuilder : IDisposable
     {
         private Bitmap _source;
 
@@ -76,6 +76,14 @@ namespace TextImage
         public string Build()
         {
             return _imageText?.ToString();
+        }
+
+        /// <summary>
+        /// To be added.
+        /// </summary>
+        public void Dispose()
+        {
+            _source?.Dispose();
         }
     }
 }
