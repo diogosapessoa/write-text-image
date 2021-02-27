@@ -40,7 +40,7 @@ namespace TextImage
                     var color = Source.GetPixel(j + x, i + y);
                     var average = (color.R + color.G + color.B) * 0.33333f;
                     if (average >= Threshold)
-                        value += Math.Pow(2, 5 - i);
+                        value += Math.Pow(2, 5 - (2 * i + j));
                 }
 
             var brailleBinaryValue = (int)value;
