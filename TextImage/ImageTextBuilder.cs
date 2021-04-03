@@ -21,6 +21,11 @@ namespace TextImage
         /// </summary>
         public ImageTextBuilder() { }
 
+        /// <summary>
+        /// To be added.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public ImageTextBuilder WithSource(Bitmap source)
         {
             _source = source;

@@ -1,12 +1,54 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1701;1702</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>TextImage</PackageId>
+    <Product>TextImage</Product>
+    <Authors>diogosapessoa@gmail.com</Authors>
+    <Owners>diogosapessoa@gmail.com</Owners>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>c# netstandard text image art ascii braille</PackageTags>
+    <Company />
+    <PackageProjectUrl>https://github.com/diogosapessoa/write-text-image</PackageProjectUrl>
+    <Title>Convert image to text</Title>
+    <Summary>Convert image to text</Summary>
+    <Description>Convert image to text</Description>
+    <PackageReleaseNotes />
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="5.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
 
 </Project>

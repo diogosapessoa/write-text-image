@@ -4,6 +4,14 @@
 
 Here is source code for convert image to text.
 
+## Installation
+
+**``TextImage`` is available on NuGet** [![NuGet](https://img.shields.io/nuget/v/TextImage.svg)](https://www.nuget.org/packages/TextImage/)
+
+```console
+PM> Install-Package TextImage -version 1.0.0
+```
+
 ## Example outputs
 
 Executing console app `image-text-cli.exe`
